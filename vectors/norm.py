@@ -3,7 +3,7 @@
 def norm(v: list[float], p = 2):
     Lp = 0
     if len(v) == 0:
-        return 'Array is empty.'
+        return 0
     if p < 1:
         return "'p' is less than 1"
     # L1-норма
@@ -33,20 +33,3 @@ def norm(v: list[float], p = 2):
         
         Lp = pow(Lp, 1/p)
         return Lp
-    
-
-
-import numpy as np
-
-v = [3, -4, 2]
-ps = [1, 2, float('inf'), 3]
-
-for p in ps:
-    my_result = norm(v, p)
-    np_result = np.linalg.norm(v, ord=p)
-
-    print(f"p = {p}")
-    print(f"my norm:    {my_result}")
-    print(f"numpy norm: {np_result}")
-    print(f"equal:      {np.isclose(my_result, np_result)}")
-    print()
