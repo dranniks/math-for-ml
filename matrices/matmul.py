@@ -51,3 +51,8 @@ start = time.time()
 print(A @ B)
 end = time.time()
 print("Время выполнения:", end - start, "секунд")
+
+start = time.time()
+print((A[:, :, None] * B[None, :, :]).sum(axis=1))
+end = time.time()
+print("Время выполнения:", end - start, "секунд")
